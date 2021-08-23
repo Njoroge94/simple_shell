@@ -1,2 +1,2 @@
 # simple_shell
-Creating a simple shell with Mohamed Gedi
+Creating a simple shell with Mohamed Gedi and myself
