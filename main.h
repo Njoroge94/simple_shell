@@ -4,8 +4,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <errno.h>
+
+extern char **environ;
 
 char **split_command(char *buff_str, char del[]);
-char *get_command(void);
 void execute(char **args);
 #endif

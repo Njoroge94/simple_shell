@@ -5,16 +5,18 @@
  * @av: strings of entered arg
  * Return: 0
 */
-int main(int ac, char **av)
+int main(void)
 {
 	char *s = '\0';
+	size_t buff_size = 0;
 	char **args;
 	int i = 0;
-	s = malloc(1024);
-	while (1)
+	int check = 1;
+
+	while (check != -1)
 	{
 		printf("#cisfun$ ");
-		s = get_command();
+		check = getline(&s, &buff_size, stdin);
 		if (strcmp(s, "exit\n") == 0)
 			break;
 		if (strcmp(s, "\n") == 0 || strcmp(s, "\0") == 0)
@@ -22,8 +24,10 @@ int main(int ac, char **av)
 		args = split_command(s, " \n\t");
 		free(s);
 		s = '\0';
-
-	
+		execute(args);
+		free(args);
+		args = '\0';
+		i++;
 	}
 	return (0);
 }

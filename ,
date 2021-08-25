@@ -27,7 +27,7 @@ unsigned int count_space(char *s, char del[])
  * @del: array of delims
  * Return: array of commands
 */
-char **split_token(char **spltstr, char *s, char del[])
+char **split_token(char **spltstr, char *s, unsigned int i, char del[])
 {
 	char *token;
 	unsigned int p_idx = 0;
@@ -58,7 +58,7 @@ char **split_token(char **spltstr, char *s, char del[])
 /**
  * split_command - takes the command string to substring
  * @buff_str: inputted string
- * @del: delimiters to be checked
+ * @del: delimiters to be checked 
  * Return: array of commands
 */
 char **split_command(char *buff_str, char del[])
@@ -79,7 +79,7 @@ char **split_command(char *buff_str, char del[])
 		free(tmp_len);
 		exit(1);
 	}
-
+	
 	m = count_space(tmp_len, del);
 	tmp_len = '\0';
 	free(tmp_len);
@@ -90,7 +90,7 @@ char **split_command(char *buff_str, char del[])
 		free(tmp_split);
 		exit(1);
 	}
-	spltstr = split_token(spltstr, tmp_split, del);
+	spltstr = split_token(spltstr, tmp_split, m, del);
 	tmp_split = '\0';
 	free(tmp_split);
 	return (spltstr);
