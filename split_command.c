@@ -23,11 +23,15 @@ unsigned int count_space(char *s, char del[])
  * split_token - split command to an array of commands
  * @spltstr: array of split string
  * @s: original string
- * @i: number of delims
+ * @m: number of delims
  * @del: array of delims
  * Return: array of commands
 */
+<<<<<<< HEAD
 char **split_token(char **spltstr, unsigned int m ,char *s, char del[])
+=======
+char **split_token(char **spltstr, m, char *s, char del[])
+>>>>>>> 275d943243881f6beed3f90884764014c1621693
 {
 	char *token;
 	unsigned int p_idx = 0;
