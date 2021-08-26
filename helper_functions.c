@@ -1,4 +1,6 @@
-#include "hsh.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 /**
  * str_len - Calculates the lenght of a string.
  * @str: String that needs length to be found.
