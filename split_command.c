@@ -27,13 +27,13 @@ unsigned int count_space(char *s, char del[])
  * @del: array of delims
  * Return: array of commands
 */
-char **split_token(char **spltstr, char *s, char del[])
+char **split_token(char **spltstr, m, char *s, char del[])
 {
 	char *token;
 	unsigned int p_idx = 0;
 
 	token = strtok(s, del);
-	while (token != NULL)
+	while (p_idx < m)
 	{
 		spltstr[p_idx] = token;
 		if (spltstr[p_idx] == NULL)
@@ -90,7 +90,7 @@ char **split_command(char *buff_str, char del[])
 		free(tmp_split);
 		exit(1);
 	}
-	spltstr = split_token(spltstr, tmp_split, del);
+	spltstr = split_token(spltstr, m, tmp_split, del);
 	tmp_split = '\0';
 	free(tmp_split);
 	return (spltstr);
