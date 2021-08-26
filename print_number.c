@@ -1,4 +1,5 @@
-#include "hsh.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * print_number - Prints an unsigned number
