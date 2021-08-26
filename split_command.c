@@ -23,7 +23,7 @@ unsigned int count_space(char *s, char del[])
  * split_token - split command to an array of commands
  * @spltstr: array of split string
  * @s: original string
- * @i: number of delims
+ * @m: number of delims
  * @del: array of delims
  * Return: array of commands
 */
