@@ -1,8 +1,6 @@
 #include "main.h"
 /**
  * main - call all the functions one by one
- * @ac: number of arguments entered at execution
- * @av: strings of entered arg
  * Return: 0
 */
 int main(void)
