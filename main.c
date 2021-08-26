@@ -12,6 +12,7 @@ int main(void)
 	char **args;
 	int i = 0;
 	int check = 1;
+	unsigned int m;
 
 	while (check != -1)
 	{
@@ -22,6 +23,7 @@ int main(void)
 		if (strcmp(s, "\n") == 0 || strcmp(s, "\0") == 0)
 			continue;
 		args = split_command(s, " \n\t");
+		printf("%u\n", m);
 		free(s);
 		s = '\0';
 		execute(args);

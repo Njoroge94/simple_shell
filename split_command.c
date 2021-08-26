@@ -27,14 +27,15 @@ unsigned int count_space(char *s, char del[])
  * @del: array of delims
  * Return: array of commands
 */
-char **split_token(char **spltstr, char *s, char del[])
+char **split_token(char **spltstr, unsigned int m ,char *s, char del[])
 {
 	char *token;
 	unsigned int p_idx = 0;
 
 	token = strtok(s, del);
-	while (token != NULL)
+	while (p_idx < m)
 	{
+		printf("%s\t%d\n", token, p_idx);
 		spltstr[p_idx] = token;
 		if (spltstr[p_idx] == NULL)
 		{
@@ -49,10 +50,13 @@ char **split_token(char **spltstr, char *s, char del[])
 			perror("Failed to allocate memory");
 			exit(1);
 		}
+		if (m - p_idx == 1)
+		{
+			spltstr[p_idx] = "\0";
+		}
 		token = strtok(NULL, del);
 		p_idx++;
 	}
-	spltstr[p_idx] = NULL;
 	return (spltstr);
 }
 /**
@@ -79,18 +83,18 @@ char **split_command(char *buff_str, char del[])
 		free(tmp_len);
 		exit(1);
 	}
-
+	
 	m = count_space(tmp_len, del);
 	tmp_len = '\0';
 	free(tmp_len);
-	spltstr = malloc(m + 1);
+	spltstr = malloc(m * sizeof(char));
 	if (spltstr == NULL)
 	{
 		perror("Unable to allocate space");
 		free(tmp_split);
 		exit(1);
 	}
-	spltstr = split_token(spltstr, tmp_split, del);
+	spltstr = split_token(spltstr, m, tmp_split, del);
 	tmp_split = '\0';
 	free(tmp_split);
 	return (spltstr);
